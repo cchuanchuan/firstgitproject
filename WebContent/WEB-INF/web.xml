@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>ServletLogin</display-name>
+  <servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.jsp.servlet.Login</servlet-class>
+  </servlet>
+  <filter>
+  	<filter-name>LoginFilter</filter-name>
+  	<filter-class>com.jsp.servlet.LoginFilter</filter-class>
+  	
+  	<!-- 初始化参数 filterconfig.getInitParameter()获取-->
+  	<init-param>
+  	  <param-name>backUrl</param-name>
+  	  <param-value>index.jsp</param-value>
+  	</init-param>
+  </filter>
+  <servlet-mapping>
+  <servlet-name>Login</servlet-name>
+  <url-pattern>/servlet/index</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 过滤器与url相关联 -->
+  <filter-mapping>
+  <filter-name>LoginFilter</filter-name>
+  <url-pattern>/mainsite/*</url-pattern>
+  </filter-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
